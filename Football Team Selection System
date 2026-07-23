@@ -1,0 +1,65 @@
+// Football Team Selection System (10 Marks)
+// A football academy has organized player trials to select the final team for an upcoming tournament. The academy has recorded each player's fitness score.
+
+// Create the following two arrays:
+// var players = ["Ali", "Ahmed", "Hamza", "Usman", "Bilal", "Ayan"];
+// var fitnessScores = [75, 48, 90, 66, 40, 81];
+
+// Write a JavaScript program that performs the following tasks:
+// Using a for loop, display each player's name along with their fitness score.
+// A player is selected if their fitness score is 60 or above; otherwise, the player is rejected.
+// Count the total number of selected players.
+// Count the total number of rejected players.
+// Display the names of all selected players.
+// Display the names of all rejected players.
+// Find the highest fitness score and display:
+// The highest score.
+// The name of the player who achieved that score.
+// Find the lowest fitness score and display:
+// The lowest score.
+// The name of the player who achieved that score.
+// Calculate the total fitness score of all players.
+// Calculate the average fitness score and round it using the appropriate JavaScript Math method.
+// If the average fitness score is 70 or above, display:
+
+var players = ["Ali", "Ahmed", "Hamza", "Usman", "Bilal", "Ayan"];
+var fitnessScores = [75, 48, 90, 66, 40, 81];
+
+var selectedPlayers = [];
+var rejectedPlayers = [];
+var selectedCount = 0;
+var rejectedCount = 0;
+
+var highestScore = fitnessScores[0];
+var lowestScore = fitnessScores[0];
+var highestPlayer = players[0];
+var lowestPlayer = players[0];
+
+var totalScore = 0;
+
+for (i = 0; i < players.length; i++) {
+    console.log(players[i] + ":" + fitnessScores[i])
+
+    if (fitnessScores[i] >= 60) {
+        console.log("selected");
+        selectedPlayers.push(players[i]);
+        selectedCount++;
+    } else {
+        console.log("rejected");
+        rejectedPlayers.push(players[i]);
+        rejectedCount++;
+        totalScore += fitnessScores[i];
+    }
+}
+
+console.log(Math.max(...players));
+console.log(Math.min(...players));
+console.log("selected players:" + selectedCount);
+console.log("rejected players:" + rejectedCount);
+
+var averageScore = Math.round(totalScore / players.length);
+if (averageScore >= 70) {
+    console.log("Average fitness score is 70 or above.");
+} else {
+    console.log("Average fitness score is below 70.");
+}
